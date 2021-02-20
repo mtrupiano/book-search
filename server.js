@@ -41,7 +41,13 @@ app.post('/api/books', ({body}, response) => {
 });
 
 app.delete('/api/books/:id', (request, response) => {
-
+  Book.findByIdAndDelete(request.params.id)
+    .then( (result) => {
+      response.json(result);
+    })
+    .catch( (err) => {
+      response.status(500).json(err);
+    });
 });
 
 // Send every other request to the React app
