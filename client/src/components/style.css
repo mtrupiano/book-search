@@ -4,6 +4,35 @@ li {
     border-radius: 5px;
 }
 
+li button {
+    max-height: 41px;
+    margin: 0 10px;
+    min-width: 65px;
+}
+
+.br {
+   background-color:  rgba(0,0,0,.125);
+   height: 2px;
+}
+
+.author-display {
+    color: rgba(0,0,0,.5);
+    font-size: 18px;
+}
+
+.description-content {
+    max-height: 200px;
+}
+
+.description-content p {
+    margin-left: 8px;
+    max-height: 172px;
+    display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}
+
 #search-form {
     margin: 0 0 10px 0;
     padding: 30px 0;

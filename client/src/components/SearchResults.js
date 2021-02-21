@@ -10,7 +10,7 @@ export default function SearchResults(props) {
             <ul className='list-group-item shadow-sm' id='results-list'>
                 {
                     props.items.map( (book) => {
-                        return <SearchResultsListItem title={book.volumeInfo.title}/>
+                        return <SearchResultsListItem book={book.volumeInfo}/>
                     })
                 }
             </ul>
