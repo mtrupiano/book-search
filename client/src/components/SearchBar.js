@@ -1,15 +1,18 @@
 import React from 'react'
 
-export default function SearchBar() {
+export default function SearchBar(props) {
     return (
-        <div className='container'>
-            <div className='row'>
-                <label className='form-label col-sm-2 col-form-label' 
-                    htmlFor='book-search-field'>Search</label>
-                <div className='col-sm-10'>
-                    <input className='form-control form-control-lg' id='book-search-field' type='text'></input>
+        <div className='container mt-5'>
+            <form className='row input-group' onSubmit={props.onSubmit} >
+                <label className='align-middle text-center form-label col-sm-2 col-form-label' 
+                    htmlFor='book-search-field' style={{fontSize: '20px'}}>Search</label>
+                <div className='col-sm-10 input-group'>
+                    <input className='form-control form-control-lg' 
+                        id='book-search-field' type='text' 
+                        onChange={props.onChange}></input>
+                    <button className='btn btn-primary' type='button' style={{width: '80px'}}>Go</button>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
