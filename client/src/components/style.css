@@ -1,0 +1,16 @@
+li {
+    border: 1px solid rgba(0,0,0,.125) !important;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+#search-form {
+    margin: 0 0 10px 0;
+    padding: 30px 0;
+    border: 1px solid rgb(226, 223, 223);
+    border-radius: 5px;;
+}
+
+#results-list {
+    border-radius: 5px;
+}
