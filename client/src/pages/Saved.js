@@ -4,8 +4,6 @@ import Nav from '../components/Nav';
 import BookList from '../components/BookList';
 import API from '../utils/API';
 
-
-
 export default function Saved() {
 
     const [savedItems, setSavedItems] = useState();
@@ -13,6 +11,7 @@ export default function Saved() {
     function loadSavedBooks() {
         API.getBooks().then( (result) => {
             setSavedItems(result.data);
+            console.log(result)
         }).catch( (err) => {
             console.log(err);
         })

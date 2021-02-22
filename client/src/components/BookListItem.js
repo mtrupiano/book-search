@@ -5,7 +5,6 @@ import API from '../utils/API';
 import './style.css'
 
 export default function BookListItem(props) {
-    console.log(props);
 
     const handleSave = (event) => {
         API.saveBook({
@@ -26,7 +25,11 @@ export default function BookListItem(props) {
     }
 
     const handleDelete = (event) => {
-
+        API.deleteBook(event.target.getAttribute('data_bookId')).then( (result) => {
+            console.log(result);
+        }).catch( (err) => {
+            console.log(err);
+        });
     }
 
     return (
@@ -41,7 +44,7 @@ export default function BookListItem(props) {
                     {
                         props.type === 'search' ? 
                         <button className='btn btn-success' onClick={handleSave}>Save</button> :
-                        <button className='btn btn-danger' onClick={handleDelete}>Remove</button>
+                        <button className='btn btn-danger' data_bookId={props.book._id} onClick={handleDelete}>Remove</button>
                     }
                     
                     <button className='btn btn-info' onClick={handleView}>View</button>
