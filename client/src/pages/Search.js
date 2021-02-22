@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import SearchBar from '../components/SearchBar';
 import Nav from '../components/Nav';
-import SearchResults from '../components/SearchResults';
+import BookList from '../components/BookList';
 
 import axios from "axios";
 
@@ -17,8 +17,8 @@ export default function Search() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios.get(url + searchTerm.term).then( (response) => {
-            setSearchResults(response.data.items);
-            console.log(response.data.items);
+            setSearchResults(response.data.items.map( e =>  e.volumeInfo ));
+            console.log(response);
         }).catch( (err) => {
             console.log(err);
         });
@@ -32,7 +32,7 @@ export default function Search() {
         <div>
             <Nav />
             <SearchBar value={searchTerm} onSubmit={handleSubmit} onChange={handleInput}/>
-            {searchResults ? <SearchResults items={searchResults} /> : null}
+            {searchResults ? <BookList type='search' items={searchResults} /> : null}
         </div>
     )
 }

@@ -1,16 +1,16 @@
 import React from 'react';
 
-import SearchResultsListItem from '../components/SearchResultsListItem';
+import BookListItem from '../components/BookListItem';
 
 import './style.css'
 
-export default function SearchResults(props) {
+export default function BookList(props) {
     return (
         <div className='container'>
             <ul className='list-group-item shadow-sm' id='results-list'>
                 {
                     props.items.map( (book) => {
-                        return <SearchResultsListItem book={book.volumeInfo}/>
+                        return <BookListItem type={props.type} book={book}/>
                     })
                 }
             </ul>

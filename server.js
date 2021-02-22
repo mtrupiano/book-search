@@ -23,6 +23,7 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
 app.get('/api/books', (request, response) => {
   Book.find({})
     .then( (result) => {
+      console.log(result.data);
       response.json(result);
     })
     .catch( (err) => {

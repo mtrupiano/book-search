@@ -4,15 +4,16 @@ import API from '../utils/API';
 
 import './style.css'
 
-export default function SearchResultsListItem(props) {
+export default function BookListItem(props) {
+    console.log(props);
 
     const handleSave = (event) => {
         API.saveBook({
             title: props.book.title,
             authors: props.book.authors,
-            image: props.book.imageLinks.thumbnail || '',
+            imageLinks: props.book.imageLinks || '',
             description: props.book.description,
-            link: props.book.previewLink
+            previewLink: props.book.previewLink
         }).then( (result) => {
             console.log(result);
         }).catch( (err) => {
@@ -24,17 +25,25 @@ export default function SearchResultsListItem(props) {
         window.open(props.book.previewLink)
     }
 
-    console.log(props.book);
+    const handleDelete = (event) => {
+
+    }
 
     return (
-        <li className='list-group-item shadow-sm'>
+        props.book ?
+        <li className='list-group-item shadow-sm' key={props.book.title}>
             <div className='row mb-2'>
                 <div className='col-md-8'>
                     <h3>{props.book.title}</h3>
                     <h5 className='author-display'>{props.book.authors ? props.book.authors.join(', ') : 'No authors attributed'}</h5>
                 </div>
-                <div className='col-md-4 d-flex align-items-center'>
-                    <button className='btn btn-success' onClick={handleSave}>Save</button>
+                <div className='col-md-4 d-flex align-items-center justify-content-center'>
+                    {
+                        props.type === 'search' ? 
+                        <button className='btn btn-success' onClick={handleSave}>Save</button> :
+                        <button className='btn btn-danger' onClick={handleDelete}>Remove</button>
+                    }
+                    
                     <button className='btn btn-info' onClick={handleView}>View</button>
                 </div>
             </div>
@@ -51,6 +60,6 @@ export default function SearchResultsListItem(props) {
                     <p>{props.book.description || 'No description available' }</p>
                 </div>
             </div>
-        </li>
+        </li> : null
     )
 }
