@@ -30,7 +30,7 @@ export default function Search() {
 
     return (
         <div>
-            <Nav />
+            <Nav page='search' />
             <SearchBar value={searchTerm} onSubmit={handleSubmit} onChange={handleInput}/>
             {searchResults ? <BookList type='search' items={searchResults} /> : null}
         </div>

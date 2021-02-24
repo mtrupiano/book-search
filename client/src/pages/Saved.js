@@ -23,8 +23,10 @@ export default function Saved() {
 
     return (
         <div>
-            <Nav />
-            <h2>My Saved Books</h2>
+            <Nav page='saved'/>
+            <div className='container mt-4 mb-3'>
+                <h2 className='text-center'>My Saved Books</h2>
+            </div>
             <BookList type='saved' items={savedItems || []} />
         </div>
     )
