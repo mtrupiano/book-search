@@ -53,7 +53,7 @@ app.delete('/api/books/:id', (request, response) => {
 
 // Send every other request to the React app
 // Define any API routes before this runs
-app.get("*", (req, res) => {
+app.use((req, res) => {
     // Otherwise, redirect to /build/index.html
     res.sendFile( path.join(__dirname, '/client/build/', 'index.html'));
   
