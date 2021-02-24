@@ -55,7 +55,7 @@ app.delete('/api/books/:id', (request, response) => {
 // Define any API routes before this runs
 app.get("*", (req, res) => {
     // Otherwise, redirect to /build/index.html
-    res.sendFile(`${__dirname}/build/index.html`);
+    res.sendFile(`${__dirname}/client/build/index.html`);
   
 });
 
